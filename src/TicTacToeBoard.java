@@ -14,23 +14,19 @@ public class TicTacToeBoard extends Board
         _2DBoardArray = new XO[rows][cols];
     }
 
-    public boolean add(int row, int col) throws
+   public void add(int row, int col) throws
             UnsupportedOperationException, IndexOutOfBoundsException
     {
-        if (_2DBoardArray[row-1][col-1] != null)
-            throw new UnsupportedOperationException("Space occupied! Try again: ");
-
-        try {
+        if(row > 3 || col > 3)
+            throw new IndexOutOfBoundsException("Out of bounds.");
+        else if (_2DBoardArray[row-1][col-1] != null)
+            throw new UnsupportedOperationException("Space occupied!");
+        else
             _2DBoardArray[row-1][col-1] = new XO();
-        } catch (IndexOutOfBoundsException ex) {
-            throw new IndexOutOfBoundsException("Out of bounds, try again: ");
-        }
 
         turnCounter = XO.getTurn();
         this.row = row-1;
         this.col = col-1;
-
-        return true;
     }
 
     public boolean isWinner()
