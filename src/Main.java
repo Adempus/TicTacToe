@@ -38,10 +38,9 @@ public class Main
 
             try {
                 int rowCol[] = getRowAndCol();
-                if (game.add(rowCol[0], rowCol[1])) continue;
+                game.add(rowCol[0], rowCol[1])
             } catch (UnsupportedOperationException | IndexOutOfBoundsException ex) {
                 System.out.println(ex.getMessage());
-                continue;
             }
         } while(!game.isWinner());
         /** loop end **/
