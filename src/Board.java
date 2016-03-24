@@ -6,8 +6,6 @@ public class Board
     private int rows;
     private int cols;
 
-    Board() { }
-
     Board (int rows, int cols) {
         this.rows = rows;
         this.cols = cols;
