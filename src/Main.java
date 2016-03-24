@@ -38,7 +38,7 @@ public class Main
 
             try {
                 int rowCol[] = getRowAndCol();
-                game.add(rowCol[0], rowCol[1])
+                game.add(rowCol[0], rowCol[1]);
             } catch (UnsupportedOperationException | IndexOutOfBoundsException ex) {
                 System.out.println(ex.getMessage());
             }
