@@ -14,7 +14,7 @@ public class TicTacToeBoard extends Board
         _2DBoardArray = new XO[rows][cols];
     }
 
-   public void add(int row, int col) throws
+    public void add(int row, int col) throws
             UnsupportedOperationException, IndexOutOfBoundsException
     {
         if(row > 3 || col > 3)
@@ -36,6 +36,9 @@ public class TicTacToeBoard extends Board
         boolean Diagonal1Match = true;
         boolean Diagonal2Match = true;
 
+        if(_2DBoardArray[row][col] == null)
+            return false;
+
         XO play = _2DBoardArray[row][col];
 
         // Check the rows and columns
@@ -54,7 +57,7 @@ public class TicTacToeBoard extends Board
                 Diagonal2Match = false;
         }
 
-        return ( rowMatch | columnMatch | Diagonal1Match | Diagonal2Match );
+        return ( rowMatch || columnMatch || Diagonal1Match || Diagonal2Match );
     }
 
     public void printBoard()
