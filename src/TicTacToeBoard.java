@@ -29,8 +29,7 @@ public class TicTacToeBoard extends Board
         this.col = col-1;
     }
 
-    public boolean isWinner()
-    {
+    public boolean isWinner() {
         boolean rowMatch = true;
         boolean columnMatch = true;
         boolean Diagonal1Match = true;
@@ -56,34 +55,27 @@ public class TicTacToeBoard extends Board
             if (!play.isEqual(_2DBoardArray[i][-1 * i + (_2DBoardArray.length - 1)]))
                 Diagonal2Match = false;
         }
-
         return ( rowMatch || columnMatch || Diagonal1Match || Diagonal2Match );
     }
 
-    public void printBoard()
-    {
+    public void printBoard() {
         System.out.println();
-        for(int row = 0 ; row < _2DBoardArray.length ; row++) {
-            for(int col = 0 ; col < _2DBoardArray[row].length ; col++) {
-                if(_2DBoardArray[row][col] == null)
-                    System.out.print(" _ ");
-                else
-                    System.out.print(" " + _2DBoardArray[row][col] + " ");
+        for(XO[] xo : _2DBoardArray) {
+            for(XO ele : xo) {
+                if(ele == null) System.out.print(" _ ");
+                else System.out.print(" " + ele + " ");
             }
             System.out.println();
         }
         System.out.println();
     }
 
-    public boolean isADraw()
-    {
-        for(int i = 0 ; i < _2DBoardArray.length ; i++) {
-            for(int j = 0 ; j < _2DBoardArray[i].length ; j++) {
-                if(_2DBoardArray[i][j] == null)
-                    return false;
+    public boolean isADraw() {
+        for(XO[] xo : _2DBoardArray) {
+            for (XO obj : xo) {
+                if (obj == null) return false;
             }
         }
-
         return true;
     }
 
